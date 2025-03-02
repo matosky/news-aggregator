@@ -11,18 +11,13 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
-      {/* Applying the Inter font globally */}
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
       <ThemeProvider>
         <UserPreferencesProvider>
           <NewsProvider>
             <div className="flex flex-col min-h-screen">
               <Header />
               <main className="flex-1">{children}</main>
-              <footer className="py-6 border-t">
+              <footer className="py-6 border-t bg-background text-foreground">
                 <div className="container mx-auto px-4 text-center text-muted-foreground">
                   <p>© {new Date().getFullYear()} NewsHub. All rights reserved.</p>
                 </div>

@@ -1,7 +1,9 @@
+/* Tailwind's default imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Root colors for light and dark mode */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -26,6 +28,7 @@
     --radius: 0.5rem;
   }
 
+  /* Dark Mode */
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -48,13 +51,33 @@
     --ring: 224.3 76.3% 48%;
   }
 }
-/* 
+
+/* Apply border styles */
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border; /* Apply the custom border color */
   }
+
   body {
     @apply bg-background text-foreground;
   }
-} */
 
+  /* Apply other global styles */
+  .card {
+    @apply bg-card text-card-foreground;
+  }
+}
+
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+}

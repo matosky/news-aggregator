@@ -6,6 +6,7 @@ import { Alert, AlertDescription, AlertTitle } from "../ui/alert"
 import { Button } from "../ui/button"
 import NewsCard from "./news-card"
 import { useNews } from "../../hooks/use-news"
+import LoadingNewsFeed from "./loading-news-feed"
 
 const ITEMS_PER_PAGE = 10
 
@@ -24,7 +25,6 @@ export default function NewsFeed() {
     updateParams({ searchTerm, filters, preferences })
   }, [searchTerm, filters, preferences, updateParams])
 
-  console.log({articles})
 
   if (error) {
     return (
@@ -37,7 +37,7 @@ export default function NewsFeed() {
   }
 
   if (loading) {
-    return <div>Loading...</div>
+    return <LoadingNewsFeed />
   }
 
   if (articles.length === 0) {

@@ -8,7 +8,7 @@ export const  Home = ()=> {
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center md:text-left">NewsHub</h1>
+        <h1 className="text-4xl bg-background text-foreground font-bold mb-8 text-center md:text-left">NewsHub</h1>
 
         <div className="mb-6">
           <SearchBar />

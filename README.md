@@ -18,7 +18,7 @@ The app fetches news articles from the following sources:
 3. New York Times
 
 ### Tech Stack
-- **Frontend**: React, TypeScript, Tailwind CSS, Shadcn, Radix-ui
+- **Frontend**: React, Vite, TypeScript, Tailwind CSS, Shadcn, Radix-ui
 - **State Management**: React Context API for managing global state
 - **Backend**: No backend (third-party APIs used for fetching data)
 - **Docker**: Docker for containerization of the app

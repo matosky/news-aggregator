@@ -22,8 +22,8 @@ export const DateFilter = ({ date, onDateChange }: DateFilterProps)=> {
           {date ? format(date, "PPP") : "Pick a date"}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0">
-        <Calendar mode="single" selected={date} onSelect={onDateChange} initialFocus />
+      <PopoverContent className="w-[300px] p-0">
+        <Calendar className="w-full" mode="single" selected={date} onSelect={onDateChange} initialFocus />
       </PopoverContent>
     </Popover>
   )

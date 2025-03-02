@@ -30,7 +30,7 @@ export default function Header() {
   const [showPreferences, setShowPreferences] = useState(false);
 
   return (
-    <header className="border-b">
+    <header className="border-b bg-background text-foreground">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="text-2xl font-bold">
           NewsHub
