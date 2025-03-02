@@ -35,7 +35,7 @@ To run the application locally or in a Docker container, ensure the following ar
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone git@github.com:matosky/news-aggregator.git
    cd <project_folder>
 2. npm install
 3. npm run dev
