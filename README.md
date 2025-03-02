@@ -52,9 +52,11 @@ To run the application locally or in a Docker container, ensure the following ar
 
 ### Environment Variables
  
-VITE_NEWSAPI_KEY=your_newsapi_key
-VITE_GUARDIAN_API_KEY=your_guardian_api_key
-VITE_NYT_API_KEY=your_nyt_api_key
+VITE_GUARDIAN_API_KEY=79e2db62-223c-4171-8e10-6995da666237
+VITE_NEWSAPI_KEY=d24d2154492141769cfce9b9253042d4
+VITE_NYT_API_KEY=hS6G7oGtrtrj6GDCaKa7MIyv4usbDfiJ
+VITE_NYT_APP_ID=ed4d021c-87f7-4f63-977d-ed54d3697660
+VITE_NYT_SECRET=yvJYLozr1SZU8s4s
 
 ### Best Practices
 
