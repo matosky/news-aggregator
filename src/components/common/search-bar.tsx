@@ -2,11 +2,11 @@ import { useState } from "react"
 import { Search } from "lucide-react"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
-import { useNews } from "../../context/news-context"
+import { useNewsContext } from "../../context/news-context"
 
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("")
-  const { setSearchTerm } = useNews()
+  const { setSearchTerm } = useNewsContext()
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()

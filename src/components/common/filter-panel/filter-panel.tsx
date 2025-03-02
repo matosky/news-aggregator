@@ -1,4 +1,4 @@
-import { NewsFilters, useNews } from "../../../context/news-context";
+import { NewsFilters, useNewsContext } from "../../../context/news-context";
 import {
   Accordion,
   AccordionContent,
@@ -11,16 +11,6 @@ import { CategoryFilter } from "./category-filter";
 import { DateFilter } from "./date-filter";
 import { SourceFilter } from "./source-filter";
 
-const categories = [
-  { id: "business", label: "Business" },
-  { id: "entertainment", label: "Entertainment" },
-  { id: "general", label: "General" },
-  { id: "health", label: "Health" },
-  { id: "politics", label: "Politics" },
-  { id: "sports", label: "Sports" },
-  { id: "techcrunch", label: "Techcrunch" },
-];
-
 const sources = [
   { id: "newsapi", label: "NewsAPI" },
   { id: "guardian", label: "The Guardian" },
@@ -28,7 +18,7 @@ const sources = [
 ];
 
 export default function FilterPanel() {
-  const { filters, setFilters } = useNews();
+  const { filters, setFilters, newsCategories } = useNewsContext();
   const handleCategoryChange = (categoryId: string, checked: boolean) => {
     setFilters((prev: NewsFilters) => ({
       ...prev,
@@ -88,7 +78,7 @@ export default function FilterPanel() {
             <AccordionTrigger>Categories</AccordionTrigger>
             <AccordionContent>
               <CategoryFilter
-                categories={categories}
+                categories={newsCategories?.categories}
                 selectedCategories={filters.categories}
                 onCategoryChange={handleCategoryChange}
               />

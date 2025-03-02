@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react"
 import { AlertCircle } from "lucide-react"
-import { useNews as useNewsContext } from "../../context/news-context"
+import { useNewsContext } from "../../context/news-context"
 import { useUserPreferences } from "../../context/user-preferences-context"
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert"
 import { Button } from "../ui/button"
 import NewsCard from "./news-card"
 import { useNews } from "../../hooks/use-news"
 import LoadingNewsFeed from "./loading-news-feed"
+import { Article } from "../../types/article"
+import { getUniqueCategories } from "../../lib/utils"
 
 const ITEMS_PER_PAGE = 10
 
 export default function NewsFeed() {
-  const { searchTerm, filters } = useNewsContext()
+  const { searchTerm, filters, setNewsCategories } = useNewsContext()
   const { preferences } = useUserPreferences()
   const [page, setPage] = useState(1)
 
@@ -24,6 +26,20 @@ export default function NewsFeed() {
   useEffect(() => {
     updateParams({ searchTerm, filters, preferences })
   }, [searchTerm, filters, preferences, updateParams])
+
+  useEffect(() => {
+    const newsCategoriesFromArticles = articles?.map((article: Article) => ({
+      id: article?.category?.toLowerCase() || "unknown", // Provide a fallback value for undefined categories
+      label: article?.category?.toUpperCase() || "UNKNOWN", // Provide a fallback value for undefined categories
+    }));
+
+    // Use the utility function to get unique categories
+    if (newsCategoriesFromArticles) {
+      const uniqueCategories = getUniqueCategories(newsCategoriesFromArticles);
+      setNewsCategories({ categories: uniqueCategories });
+    }
+  }, [articles, setNewsCategories]);
+
 
 
   if (error) {

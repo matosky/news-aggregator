@@ -1,3 +1,4 @@
+import { capitalizeFirstLetter } from "../../../lib/utils"
 import { Checkbox } from "../../ui/checkbox"
 import { Label } from "../../ui/label"
 
@@ -22,7 +23,7 @@ export const CategoryFilter = ({ categories, selectedCategories, onCategoryChang
             checked={selectedCategories.includes(category.id)}
             onCheckedChange={(checked) => onCategoryChange(category.id, checked as boolean)}
           />
-          <Label htmlFor={`category-${category.id}`}>{category.label}</Label>
+          <Label htmlFor={`category-${category.id}`}>{capitalizeFirstLetter(category.label)}</Label>
         </div>
       ))}
     </div>

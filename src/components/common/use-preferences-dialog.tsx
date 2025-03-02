@@ -13,16 +13,8 @@ import { Checkbox } from "../ui/checkbox";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { AuthorService } from "../../services/AuthorService"; // Import the AuthorService
+import { useNewsContext } from "../../context/news-context";
 
-const categories = [
-  { id: "business", label: "Business" },
-  { id: "entertainment", label: "Entertainment" },
-  { id: "general", label: "General" },
-  { id: "health", label: "Health" },
-  { id: "science", label: "Science" },
-  { id: "sports", label: "Sports" },
-  { id: "technology", label: "Technology" },
-];
 
 const sources = [
   { id: "newsapi", label: "NewsAPI" },
@@ -38,6 +30,7 @@ export function UserPreferencesDialog({
   const [localPreferences, setLocalPreferences] = useState(preferences);
   const [authors, setAuthors] = useState<{ id: string; label: string }[]>([]);
   const [isLoadingAuthors, setIsLoadingAuthors] = useState(false);
+  const { newsCategories } = useNewsContext()
 
   const authorService = new AuthorService(); // Instantiate AuthorService
 
@@ -146,7 +139,7 @@ export function UserPreferencesDialog({
 
           <TabsContent value="categories" className="space-y-4 mt-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {categories.map((category) => (
+              {newsCategories?.categories?.map((category) => (
                 <div key={category.id} className="flex items-center space-x-2">
                   <Checkbox
                     id={`pref-category-${category.id}`}
