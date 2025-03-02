@@ -1,11 +1,13 @@
 # News Aggregator Application
 
-This is a news aggregator app built with React and TypeScript. It pulls articles from multiple sources such as NewsAPI, Guardian, and NYTimes, allowing users to search and filter news based on various parameters.
+This is a news aggregator app built with React+Vite and TypeScript. It pulls articles from multiple sources such as NewsAPI, Guardian, and NYTimes, allowing users to search and filter news based on various parameters.
 
 ### Features
 - **Article Search & Filter**: Search articles by keywords, and filter them by date, category, and source.
 
 - **Personalized News Feed**: Users can customize their news feed by selecting their preferred sources, categories, and authors.
+
+- **Light/Dark Theming**: Users can switch light or dark theme based on their preference
 
 - **Mobile Responsive**: Optimized for mobile devices to provide a seamless user experience.
 
